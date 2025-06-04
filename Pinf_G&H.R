@@ -159,4 +159,9 @@ amova.result <-poppr.amova(Pinf_pop_rc, ~clonal_lineage/location, clonecorrect =
 
 amova.result
 
-###################################################################
+####################################################################################
+##Locus stats
+library("magrittr")  
+locus_table(Pinf_pc_rc)
+
+
