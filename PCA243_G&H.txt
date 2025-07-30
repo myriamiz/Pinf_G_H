@@ -4,7 +4,7 @@ nm	Sample.Name	Marker	Allele.1	Allele.2	Allele.3
 3	H.71	locus1_D13	136	142	
 4	H.111	locus1_D13	140	142	152
 5	H.84	locus1_D13	136	170	
-6	H.58	locus1_D13	140	140	156
+6	H.58	locus1_D13	140	156
 7	H.217	locus1_D13	134	136	152
 8	H.242	locus1_D13	136	152	
 9	H.73	locus1_D13	154	154	
