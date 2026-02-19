@@ -5,21 +5,24 @@
 ##PCA
 library (polysat)
 
-mygen <- read.GeneMapper ("PCA243_G&H.txt")
+mygen <- read.GeneMapper ("PCA182_H&G.txt")
+
+
 mygen
 
 #add a description
 Description(mygen) <- "Phytophthora infestans G&H"
 #add population names
-PopNames(mygen) <- c("H.Int","H.FrcMor","H.Oco","H.Lemp","G.SOL","G.QTZ","G.HTG","G.SM", "G.CHT","13_A2","US8A2","US7A2")
+PopNames(mygen) <- c("H.Int","H.Lemp","H.Oco","H.FrcMor","G.SM", "G.CHT","G.SOL","G.HTG","EU13A2","US7A2")
 
-pops <- c("H.Int","H.FrcMor","H.Oco","H.Lemp","G.SOL","G.QTZ","G.HTG","G.SM", "G.CHT","13_A2","US8A2","US7A2")
+pops <- c("H.Int","H.Lemp","H.Oco","H.FrcMor","G.SM", "G.CHT","G.SOL","G.HTG","EU13A2","US7A2")
 
-#add population info in the same order as the samples (see file Pop.Info.txt), this can also be an additional column in the original dataset (H.Int=1, H.FrcMor=2, H.Oco=3, H.Lemp=4, G.SOL=5, G.QTZ=6, G.HTG=7, G.SM=8, G.CHT=9, 13_A2=10, US8A2=11, US7A2=12)
+#add population info in the same order as the samples (see file Pop.Info.txt), this can also be an additional column in the original dataset (Intibuca=1, Lempira=2, Ocotepeque=3, FranciscoMorazan=4, SanMarcos=5, Chimaltenango=6, Sololá=7, Huehuetenango=8, EU13A2=9, US7A2=10)
 
-PopInfo(mygen) <- c(1,1,1,2,3,1,1,1,1,1,1,1,3,3,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1,5,6,6,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10,1,1,10,1,1,2,1,1,1,1,1,1,1,6,1,1,1,1,8,6,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,9,1,1,10,1,1,1,1,1,1,1,1,6,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,1,1,10,1,8,1,1,1,1,1,1,1,1,1,9,11,7,8,12,1,8,1,6,1,1,5,7,8,1,6,7,1,9,8,8,7,8,9,6,7,7,9,8,6,6,1,6,7,1,1,6,8,6,5,6,6,7,1,1,1)
+PopInfo(mygen) <- c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,3,1,1,1,1,4,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,3,3,1,1,1,1,1,1,1,1,1,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,6,7,8,8,8,8,8,9,9,9,10)
 
 mygen
+
 
 
 
@@ -52,7 +55,8 @@ pca2 <-cmdscale(Bruvomat, k=3)
 
 # set colors for datapoints/population
 mycol <- c("#9D98F6","#0099FF","#33cc99","blue","black","firebrick4", 
-           "#93E1D8","#117733","#FFA69E","#003399","#ffcc66","#ff66ff")#"#660066","purple4","royalblue1","hotpink1","lightskyblue3" )
+           "#117733","#FFA69E","#003399","#ff66ff")
+
 
 
 
@@ -64,17 +68,35 @@ plot(pca[,1],pca2[,3], col=mycol[PopInfo(mygen)],
 
 
 # add reference isolate names 
-text (x=0.048172839, y=0.0122837225, "13A2_1", cex=0.8, col="#003399")
-text (x=0.05323101864, y=0.00130165859, "13A2_118", cex=0.8, col="#003399")
-text (x=0.059224174799, y=-0.0097606472, "13A2_177", cex=0.8, col="#003399")
-text (x=0.085781333, y=-0.0001527002, "13A2_180", cex=0.8, col="#003399")
-text (x=-0.12033415597, y=0.03175248, "US8A2", cex=0.8, col="#ffcc66")
-text (x=-0.26289181, y=-0.110283815, "US7A2", cex=0.8, col="#ff66ff")
+text (x=-0.005948804, y=-0.019277777, "13A2_118", cex=0.8, col="#003399")
+text (x=-0.03628418, y=0.00958399218, "13A2_177", cex=0.8, col="#003399")
+text (x=-0.0294376121593, y=-0.00834159447, "13A2_180", cex=0.8, col="#003399")
+text (x=0.278002132, y=0.13559143311, "US7A2", cex=0.8, col="#ff66ff")
 
+
+#group1
+#add extra isolates 
+text ( x=0.2955725378,y=-0.131777780,"H126" ,cex=0.8,col="#9D98F6")
+text ( x=0.2755725378,y=-0.135777780,"H155" ,cex=0.8,col="#9D98F6")
+text ( x=0.2855725378,y=-0.121117777804,"G53" ,cex=0.8,col="#FFA69E")
+text ( x=0.2671590938,y=-0.1394344650,"G29" ,cex=0.8,col="#117733")
+text ( x=0.271240073,y=-0.1784208947,"H55" ,cex=0.8,col="#9D98F6")
+
+
+#group2
+
+text ( x=0.337353148,y=0.0528113222,"H161" ,cex=0.8,col="#9D98F6")
+text ( x=0.32502472901,y=0.0877386226,"G49" ,cex=0.8,col="#FFA69E")
+text ( x=0.34224254767,y=0.125793092,"G41" ,cex=0.8,col="#FFA69E")
+text ( x=0.29110276232,y=0.0082549158,"H102" ,cex=0.8,col="#9D98F6")
+text ( x=0.2650871335830,y=0.1207660729,"H149",cex=0.8,col="#9D98F6")
+text ( x=0.2452681215,y=0.128840406,"G52" ,cex=0.8,col="#FFA69E")
+text ( x=0.215984069411,y=0.06269353158,"H134" ,cex=0.8,col="#9D98F6")
+text ( x=0.18515160386549,y=0.05342062586,"H120" ,cex=0.8,col="#9D98F6")
 
 
 # add legend      
-legend("topright", c("H.Int","H.FrcMor","H.Oco","H.Lemp","G.SOL","G.QTZ","G.HTG","G.SM", "G.CHT","13_A2","US8A2","US7A2")
+legend("bottomleft", c("H.Int","H.Lemp","H.Oco","H.FrcMor","G.SM", "G.CHT","G.SOL","G.HTG","EU13A2","US7A2")
        , text.col=mycol, bg="grey96", cex=0.55)
 
 dev.off()
@@ -83,30 +105,55 @@ dev.off()
 
 
 
-##########################################################
-##Tree
+##############
+#Tree
+############################################################
+## P. infestans SSR (GenAlEx) -> Bruvo distance -> BioNJ/NJ ##
+############################################################
 
-
+## 0) Packages
 library(poppr)
+library(adegenet)
+library(ape)
+library(ggtree)
+library(ggplot2)
 
-Pinf_pc <- read.genalex("G&H243.csv", ploidy=3, geo = FALSE, genclone = FALSE)
-Pinf_pc
-#remove 0s
-Pinf_pc_rc <- recode_polyploids (Pinf_pc, newploidy = TRUE)
-Pinf_pc_rc
+## 1) Read data (allows up to 3 alleles per locus)
+Pinf_pc <- read.genalex("H&G182.csv", ploidy = 3, geo = FALSE, genclone = FALSE)
+
+## 2) Recode/clean data (handles 0s and genotypes with >2 alleles when applicable)
+Pinf_pc_rc <- recode_polyploids(Pinf_pc, newploidy = TRUE)
+
+## 3) Basic QC (optional but recommended)
+print(Pinf_pc_rc)
+table(Pinf_pc_rc@ploidy)                # how many individuals are 2 vs 3
+locNames(Pinf_pc_rc)                    # locus names
+Pinf_pc_rc@loc.n.all                    # number of alleles per locus
+
+## 4) Bruvo distance
+## IMPORTANT: 'replen' must have the SAME length and order as locNames(Pinf_pc_rc)
+replen_vec <- c(2,2,2,2,3,2,3,2,2,2,2,2)
+
+stopifnot(length(replen_vec) == nLoc(Pinf_pc_rc))
+names(replen_vec) <- locNames(Pinf_pc_rc)  # documents the order
+
+bruv <- bruvo.dist(Pinf_pc_rc,
+                   replen = replen_vec,
+                   add = TRUE,
+                   loss = TRUE,
+                   by_locus = FALSE)
+
+## 5) BioNJ tree
+tree_bionj <- bionj(as.matrix(bruv))
 
 
-##estimating distances##
-##BRUVO DISTANCE##
-bruv <- bruvo.dist(Pinf_pc_rc,replen=c(2,2,2,2,3,2,3,2,2,2,2,2),add = TRUE, loss = TRUE, by_locus = FALSE)
-bruv
+## Quick plot (for inspection only)
+plot(tree_bionj, main = "BioNJ – Bruvo distance")
 
-##estimate UPGMA trees with each distance##
+## Export for editing in MEGA / FigTree / Inkscape
+write.tree(tree_bionj, file = "BioNJ_Bruvo_182.nwk")
 
-##bruvo's UPGMA tree
-UPGMA_bruv <- upgma(bruv)
 
-write.tree(UPGMA_bruv, file="UPGMA_bruvoTree.nwk")
 
 
 ##########################################################
@@ -117,11 +164,11 @@ library(RColorBrewer)
 
 
 #add the groups into the original datafile pop slot
-Pinf_pop <- read.genalex("G&H243B.csv", ploidy=3, geo = FALSE, genclone = FALSE)
+Pinf_pop <- read.genalex("H&G182B.csv", ploidy=3, geo = FALSE, genclone = FALSE)
 Pinf_pop
 
 #add other information, in this case the geographical info:
-demographics <- read.csv("243_other.csv", header=T)
+demographics <- read.csv("182_other.csv", header=T)
 other(Pinf_pop)$xy <- demographics
 
 #add repeats of the SSR loci
@@ -139,29 +186,27 @@ Pinf_pop_rc <- recode_polyploids (Pinf_pop, newploidy = TRUE)
 Pinf_pop_rc
 
 #create RColorBrewer palette           
-four_colors <-c("#77AADD","#ffcc66","#ff66ff","#660066")
+three_colors <-c("#77AADD","#ff66ff","#660066")
 
 #msn with distance bar and other features
 pcmsn <- bruvo.msn(Pinf_pop_rc, replen =repeats)
 
-plot_poppr_msn(Pinf_pop_rc, pcmsn, size.leg = FALSE, inds=0, palette = four_colors)
+plot_poppr_msn(Pinf_pop_rc, pcmsn, size.leg = FALSE, inds=0, palette = three_colors)
 
 
 dev.off()
 
 ######################################################################################
-#Analysis of Molecular Variance, AMOVA 
+##Analysis of Molecular Variance, AMOVA 
 
-#Hierarchical AMOVA by clonal lineage (13A2,US8A2,US7A2,CA)
+#Hierarchical AMOVA by clonal lineage (13A2,US7A2,CA)
 
-amova.result <-poppr.amova(Pinf_pop_rc, ~clonal_lineage/location, clonecorrect =TRUE,
+amova.result <-poppr.amova(Pinf_pop_rc, ~clonal.lineage/location, clonecorrect =TRUE,
                            method="ade4", within=FALSE)  
 
 amova.result
 
-####################################################################################
+###################################################################
 ##Locus stats
 library("magrittr")  
 locus_table(Pinf_pc_rc)
-
-
