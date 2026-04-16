@@ -5,7 +5,7 @@
 ##PCA
 library (polysat)
 
-mygen <- read.GeneMapper ("PCA182_H&G.txt")
+mygen <- read.GeneMapper ("PCA243_H&G.txt")
 
 
 mygen
@@ -62,7 +62,7 @@ mycol <- c("#9D98F6","#0099FF","#33cc99","blue","black","firebrick4",
 
 # make PCA plot
 plot(pca[,1],pca2[,3], col=mycol[PopInfo(mygen)], 
-     main="PCA with Bruvo distance", 
+     main="PCoA with Bruvo distance", 
      pch=17, bg="grey96",abline(v=0.0, h=0.0))
 
 
@@ -119,7 +119,7 @@ library(ggtree)
 library(ggplot2)
 
 ## 1) Read data (allows up to 3 alleles per locus)
-Pinf_pc <- read.genalex("H&G182.csv", ploidy = 3, geo = FALSE, genclone = FALSE)
+Pinf_pc <- read.genalex("H&G243.csv", ploidy = 3, geo = FALSE, genclone = FALSE)
 
 ## 2) Recode/clean data (handles 0s and genotypes with >2 alleles when applicable)
 Pinf_pc_rc <- recode_polyploids(Pinf_pc, newploidy = TRUE)
@@ -164,11 +164,11 @@ library(RColorBrewer)
 
 
 #add the groups into the original datafile pop slot
-Pinf_pop <- read.genalex("H&G182B.csv", ploidy=3, geo = FALSE, genclone = FALSE)
+Pinf_pop <- read.genalex("H&G243B.csv", ploidy=3, geo = FALSE, genclone = FALSE)
 Pinf_pop
 
 #add other information, in this case the geographical info:
-demographics <- read.csv("182_other.csv", header=T)
+demographics <- read.csv("243_other.csv", header=T)
 other(Pinf_pop)$xy <- demographics
 
 #add repeats of the SSR loci
@@ -199,7 +199,7 @@ dev.off()
 ######################################################################################
 ##Analysis of Molecular Variance, AMOVA 
 
-#Hierarchical AMOVA by clonal lineage (13A2,US7A2,CA)
+#Hierarchical AMOVA 
 
 amova.result <-poppr.amova(Pinf_pop_rc, ~clonal.lineage/location, clonecorrect =TRUE,
                            method="ade4", within=FALSE)  
